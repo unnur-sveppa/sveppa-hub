@@ -1,0 +1,53 @@
+version: '2.1'
+
+services:
+  # 1. WireGuard - Örugga hliðið þitt (Port 51821)
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy:13
+    container_name: wg-easy
+    volumes:
+      - 'etc_wireguard:/etc/wireguard'
+    environment:
+      - WG_HOST=31.209.219.73
+      - PASSWORD=SveppaAdmin2026
+      - WG_DEFAULT_ADDRESS=10.8.0.x
+      - WG_DEFAULT_ALLOWED_IPS=10.8.0.0/24, 192.168.1.0/24
+      - WG_PORT=51820
+      - WG_WUI_HOST=0.0.0.0
+    ports:
+      - "51820:51820/udp"
+      - "51821:51821/tcp"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+    restart: unless-stopped
+
+  # 2. MQTT Broker - Pósthúsið fyrir Sveppa Tech (Port 1883)
+  mosquitto:
+    build: ./mosquitto
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - 'mosquitto-data:/mosquitto/data'
+      - 'mosquitto-log:/mosquitto/log'
+
+  # 3. Node-RED - Heilinn í kerfinu (Port 1880)
+  nodered:
+    build: ./nodered
+    restart: always
+    ports:
+      - "1880:1880"
+    volumes:
+      - 'node-red-data:/data'
+    depends_on:
+      - mosquitto
+
+volumes:
+  etc_wireguard:
+  node-red-data:
+  mosquitto-data:
+  mosquitto-log:
