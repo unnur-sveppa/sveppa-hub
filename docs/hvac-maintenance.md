@@ -1,3 +1,3 @@
-### Discovery: Register Sweep Results 
-- Status: Address 1-100 sweep active 
-- Confirmed: Setpoints reside in the 100-block 
+### Utility: Modbus Scanner Script 
+- Purpose: Automated discovery of CU27-C registers 
+- Range: 1-15000 (Step 100) 
