@@ -14,3 +14,6 @@
 ### UI Logic: JSONata Absolute Pathing 
 - Resolved: Using $$.payload[index] in J: expression mode. 
 - Efficiency(0), Supply(43), Extract(50) 
+### UI Logic Fix: Expression Mode Implementation 
+- Resolved "Invalid JSONata" error by switching Change nodes to J: expression mode. 
+- Formula: payload / 10 for Efficiency. 
