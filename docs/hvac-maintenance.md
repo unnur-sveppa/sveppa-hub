@@ -17,3 +17,6 @@
 ### UI Logic Fix: Expression Mode Implementation 
 - Resolved "Invalid JSONata" error by switching Change nodes to J: expression mode. 
 - Formula: payload / 10 for Efficiency. 
+### UI Logic: Template Node Indexing 
+- Method: Using Mustache templates {{payload.N}} to isolate registers. 
+- Reason: Resolving JSONata function signature mismatches with arrays. 
