@@ -20,3 +20,6 @@
 ### UI Logic: Template Node Indexing 
 - Method: Using Mustache templates {{payload.N}} to isolate registers. 
 - Reason: Resolving JSONata function signature mismatches with arrays. 
+### UI Logic: Multi-Rule Change Nodes Implementation 
+- Efficiency isolated from Index 0 and scaled 0.1x 
+- Temperatures isolated from Indices 43 and 50 
