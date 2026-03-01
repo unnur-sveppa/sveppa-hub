@@ -6,3 +6,5 @@
 ### UI Logic Fix: JSONata Expression Mode 
 - Confirmed: Change nodes must use J: expression mode, not env variable. 
 - Mapping: Eff(0), Supply(43), Extract(50) scaled by 0.1x 
+### UI Logic: JSONata Final Configuration  - Efficiency: payload / 10 
+- Supply: payload / 10 
